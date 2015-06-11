@@ -14,7 +14,43 @@
 	<context:annotation-config />
 	<context:component-scan base-package="com.jbarragan.jcastro"></context:component-scan>
 
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>/WEB-INF/dataSource.properties</value>
+		</property>
+	</bean>
 
+	<bean id="PorSuramericaEM"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="PorSuramericaDS" />
+		<property name="persistenceUnitName" value="PorSuramericaPU" />
+		<property name="packagesToScan" value="com.claro.jbarragan.jcastro.enitity" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			</props>
+		</property>
+	</bean>
 
+	<bean id="PorSuramericaDS"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${user}" />
+		<property name="password" value="${password}" />
+	</bean>
+
+	<bean id="PorSuramericaTM" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="PorSuramericaEM" />
+	</bean>
+
+	<bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>
