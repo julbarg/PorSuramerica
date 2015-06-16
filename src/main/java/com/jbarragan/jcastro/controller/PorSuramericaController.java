@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.claro.jbarragan.jcastro.enitity.PostEntity;
+import com.claro.jbarragan.jcastro.dto.PostDTO;
 import com.jbarragan.jcastro.dao.PostDAO;
 
 
@@ -21,6 +21,8 @@ public class PorSuramericaController implements Serializable {
     * 
     */
    private static final long serialVersionUID = 1L;
+
+   private ArrayList<PostDTO> listPost = new ArrayList<PostDTO>();
 
    @Autowired
    private PostDAO postDAO;
@@ -36,16 +38,21 @@ public class PorSuramericaController implements Serializable {
 
    private void loadPost() {
       try {
-         ArrayList<PostEntity> listPost = new ArrayList<PostEntity>();
-         listPost = postDAO.findAll();
-         for (PostEntity post : listPost) {
-            textEdit = textEdit + post;
+         PostDTO post;
+         listPost = new ArrayList<PostDTO>();
+         for (int i = 0; i < 8; i++) {
+            post = new PostDTO();
+            post.setTitle("01. CALI ES CALI LO DEMAS ES LOMA");
+            post.setCityFrom("Cali, Colombia");
+            post.setCityTo("Popayan, Colombia");
+            post.setDescription("Lorem Ipsum is simply dummy text "
+               + "of the printing and typesetting industry. Lorem Ipsum has been "
+               + "the industry's standard dummy text ever since the 1500s.");
+            post.setDate("10 de enero de 2015");
+            post.setImage("background-image:url('resources/img/trujillo.jpg');");
+            listPost.add(post);
          }
-         PostEntity post = new PostEntity();
-         post.setOrigen("Cali");
-         post.setDestino("Popayam");
-         post.setDescripcion("Cali - Popayan");
-         postDAO.create(post);
+
       } catch (Exception e) {
          e.printStackTrace();
       }
@@ -58,6 +65,14 @@ public class PorSuramericaController implements Serializable {
 
    public void setTextEdit(String textEdit) {
       this.textEdit = textEdit;
+   }
+
+   public ArrayList<PostDTO> getListPost() {
+      return listPost;
+   }
+
+   public void setListPost(ArrayList<PostDTO> listPost) {
+      this.listPost = listPost;
    }
 
 }

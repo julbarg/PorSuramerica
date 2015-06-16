@@ -2,14 +2,130 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-	<title>Por Suramerica</title>
+	<title>P</title>
 	<h:outputStylesheet library="css" name="main.css" />
+	<link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One'
+		rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Montserrat'
+		rel='stylesheet' type='text/css' />
 </h:head>
 <h:body>
 	<h:form id="form">
-		<p:editor value="#{porSuramerica.textEdit}" />
+		<p:panel styleClass="header">
+			<p:menubar styleClass="nav">
+				<p:menuitem value="INICIO" url="#" />
+				<p:menuitem value="RUTA" url="#" />
+				<p:menuitem styleClass="logo" value="Logo" url="#" />
+				<p:menuitem value="HISTORIAS" url="#" />
+				<p:menuitem value="PREPARACIÓN" url="#" />
+			</p:menubar>
+			<p:panel styleClass="slogan">
+				<h:panelGrid>
+					<h:outputLabel styleClass="h1" value="POR SURAMERICA"></h:outputLabel>
+					<h:outputLabel styleClass="h2" value="Te Atreves a Soñar"></h:outputLabel>
+				</h:panelGrid>
+			</p:panel>
+			<p:panel styleClass="resume_header">
+				<h:outputLabel styleClass="h2" value="DIA 32" />
+				<h:panelGrid columns="3">
+					<h:outputLabel styleClass="ciudad" value="BUENOS AIRES ARGENTINA" />
+					<h:outputLabel styleClass="km" value="33.304 Km" />
+					<p:panel styleClass="temperatura">
+						<h:panelGrid columns="2">
+							<p:outputLabel value="32°C" styleClass="temperatura_number" />
+							<p:graphicImage library="img" name="temperature.png" height="40" />
+						</h:panelGrid>
+					</p:panel>
+				</h:panelGrid>
+
+			</p:panel>
+			<p:panel styleClass="social">
+				<h:panelGrid columns="4">
+					<p:graphicImage library="img" name="facebook.png" />
+					<p:graphicImage library="img" name="twitter.png" />
+					<p:graphicImage library="img" name="imstagram.png" />
+					<p:graphicImage library="img" name="youtube.png" />
+				</h:panelGrid>
+			</p:panel>
+		</p:panel>
+		<p:panel styleClass="routes">
+			<ui:repeat var="post" value="#{porSuramerica.listPost}"
+				varStatus="status">
+				<p:panel styleClass="route" style="#{post.image}">
+					<p:outputPanel styleClass="description_route">
+						<p class="cities">
+							#{post.title}<br /> #{post.cityFrom} - #{post.cityTo}
+						</p>
+						<p class="intro">#{post.description}</p>
+						<p class="date_route">#{post.date}</p>
+					</p:outputPanel>
+				</p:panel>
+			</ui:repeat>
+		</p:panel>
+
+		<div class="where">
+			<h1>¿DONDE PUTAS ESTAMOS?</h1>
+			<div id="map-canvas"></div>
+		</div>
+		<div class="reflexion">
+			<div class="message">
+				<p>Para la mayoría de las cosas importantes, el momento siempre
+					es pésimo.</p>
+				<p>¿Estás esperando un buen momento para dejar tu trabajo? Las
+					estrellas nunca se alinearán y los semáforos de la vidad nunca se
+					pondrán todos verdes al mismo tiempo. El universo no conspira
+					contra ti, pero tampoco se volverá loco para apartarte obstáculos
+					del camino. Las condiciones nunca serán las ideales. "Algún día" es
+					una enfermedad que hará que te lleves tus sueños a la tumba. Hacer
+					listas de pros y contras tampoco ayuda.</p>
+				<p>Si algo es importante para ti y quieres hacerlo "algún día",
+					hazlo y corrige el rumbo mientras caminas.</p>
+			</div>
+		</div>
+
+		<footer>
+			<div class="footer">
+				<h3>CONTACTO</h3>
+				<br />
+				<p>
+					Julián Barragán Verano<br />julbarg@gmail.com
+				</p>
+				<br />
+				<p>
+					Johnatan Felipe Castro Hincapie<br />johntcastro@gmail.com
+				</p>
+				<br />
+				<div class="social_footer">
+					<img alt="facebook" src="img/facebook.png" /> <img alt="twitter"
+						src="img/twitter.png" /> <img alt="imstagram"
+						src="img/imstagram.png" /> <img alt="youtube"
+						src="img/youtube.png" />
+				</div>
+			</div>
+			<div class="footer">
+				<h3>MAPA DE SITIO</h3>
+				<br />
+				<ul class="grupo_mapa_sitio">
+					<li class="link_mapa_sitio">INICIO</li>
+					<li class="link_mapa_sitio">RUTAS</li>
+					<li class="link_mapa_sitio">HISTORIAS</li>
+					<li class="link_mapa_sitio">MENSAJES</li>
+					<li class="link_mapa_sitio">ACERCA DE</li>
+				</ul>
+			</div>
+			<div class="footer">
+				<h3>MENSAJES</h3>
+				<br /> <input class="contacto" type="text" onFocus="cambio(this)"
+					placeholder="Nombre" /> <input class="contacto" type="text"
+					onFocus="cambio(this)" placeholder="E-Mail" />
+				<textarea class="contacto_mensaje" placeholder="Mensaje"></textarea>
+				<br />
+				<button type="button" class="boton_enviar">Enviar</button>
+			</div>
+		</footer>
 	</h:form>
 </h:body>
 </html>
