@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Administrador - Por Suramerica</title>
+	<h:outputStylesheet library="css" name="admin.css" />
+	<link href='http://fonts.googleapis.com/css?family=Oswald:300'
+		rel='stylesheet' type='text/css' />
+</h:head>
+<h:body>
+	<p:panel styleClass="panel_header">
+		<p:panel styleClass="panel_logo">
+			<h:graphicImage library="img" name="logo.png" alt="logo"
+				width="160" />
+		</p:panel>
+		<p:panel styleClass="panel_header_info">
+			<h:commandButton image="../resources/img/home.png"
+				styleClass="button_menu_header" />
+			<h:commandButton image="../resources/img/admin.png"
+				styleClass="button_menu_header" />
+			<h:commandButton image="../resources/img/settings.png"
+				styleClass="button_menu_header" />
+			<h:commandButton image="../resources/img/quit.png"
+				styleClass="button_menu_header" />
+
+		</p:panel>
+	</p:panel>
+	<h:panelGrid columns="2" styleClass="panel_grid_main" cellspacing="0"
+		cellpadding="0">
+		<p:panel styleClass="panel_menu">
+			<h:form id="form_menu">
+				<p:menu styleClass="main_menu">
+					<p:menuitem value="Mapas" actionListener="#{menuView.save}"
+						icon="iconmaps" containerStyleClass="span_main_menu" />
+					<p:menuitem value="Consultas" actionListener="#{menuView.consulta}"
+						icon="iconedit" containerStyleClass="span_main_menu" />
+				</p:menu>
+			</h:form>
+
+		</p:panel>
+		<p:panel styleClass="panel_content">
+			<h1>Post</h1>
+		</p:panel>
+	</h:panelGrid>
+
+
+</h:body>
+</html>

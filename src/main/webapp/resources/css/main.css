@@ -436,21 +436,51 @@ textarea.contacto_mensaje {
 	font-size: 16px !important;
 	box-shadow: 0px 0px 0px #1C1C1C !important;
 	font-family: 'Chau Philomene One', sans-serif;
-	font-weight: lighter;;
 }
 
 button.boton_enviar {
-	width: 100px;
-	height: 25px;
+	width: 360px;
+	height: 30px;
 	background-color: #7ea6b5;
 	border: none;
 	font-size: 18px;
 	color: #F2F2F2;
+	font-family: 'Chau Philomene One', sans-serif;
 }
 
 .social_footer {
 	padding-left: 5px;
 	padding-right: 5px;
+}
+
+.ui-button {
+	font-weight: 100 !important;
+	background: rgb(0, 122, 163) !important;
+	color: white !important;
+	border: 0 !important;
+	text-shadow: none !important;
+	-moz-box-shadow: 1px 1px 2px #1C1C1C;
+	-webkit-box-shadow: 1px 1px 2px #1C1C1C;
+	box-shadow: 1px 1px 2px #1C1C1C;
+}
+
+.ui-button:HOVER {
+	text-shadow: none !important;
+	-moz-box-shadow: 1px 1px 2px #1C1C1C;
+	-webkit-box-shadow: 1px 1px 2px #1C1C1C;
+	box-shadow: 2px 2px 2px #1C1C1C;
+}
+
+.ui-button:ACTIVE {
+	text-shadow: none !important;
+	-moz-box-shadow: 1px 1px 2px #1C1C1C;
+	-webkit-box-shadow: 1px 1px 2px #1C1C1C;
+	box-shadow: 2px 2px 2px #1C1C1C;
+}
+
+.ui-button-text {
+	font-size: 16px;
+	font-style: normal !important;
 }
 
 @-webkit-keyframes animatedBackground {

@@ -1,0 +1,109 @@
+@CHARSET "ISO-8859-1";
+
+* {
+	font-family: 'Oswald', sans-serif !important;
+}
+
+table.main_login {
+	width: 430px;
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	padding: 0 !important;
+	border: 0;
+	margin-right: auto;
+}
+
+div.login {
+	width: 430px;
+	height: 400px;
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
+	float: left;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 0;
+	padding: 0 !important;
+	font-size: 16px;
+	color: #B40404;
+}
+
+table.grid_login {
+	width: 360px;
+	margin-top: 90px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+}
+
+.input_login {
+	width: 330px;
+	background-color: rgba(28, 28, 28, 0.2) !important;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+	border: 0 !important;
+	color: white !important;
+	height: 40px;
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	font-size: 14px !important;
+	box-shadow: 0px 0px 0px #1C1C1C !important;
+	font-family: 'Chau Philomene One', sans-serif;
+}
+
+::-webkit-input-placeholder {
+	color: white;
+}
+
+:-moz-placeholder {
+	color: white;
+}
+
+::-moz-placeholder {
+	color: white;
+}
+
+:-ms-input-placeholder {
+	color: white;
+}
+
+.ui-button {
+	font-weight: 100 !important;
+	background: rgb(0, 122, 163) !important;
+	color: white !important;
+	border: 0 !important;
+	text-shadow: none !important;
+	-moz-box-shadow: 1px 1px 2px #1C1C1C;
+	-webkit-box-shadow: 1px 1px 2px #1C1C1C;
+	box-shadow: 1px 1px 2px #1C1C1C;
+}
+
+.ui-button:HOVER {
+	text-shadow: none !important;
+	-moz-box-shadow: 1px 1px 2px #1C1C1C;
+	-webkit-box-shadow: 1px 1px 2px #1C1C1C;
+	box-shadow: 2px 2px 2px #1C1C1C;
+}
+
+.ui-button:ACTIVE {
+	text-shadow: none !important;
+	-moz-box-shadow: 1px 1px 2px #1C1C1C;
+	-webkit-box-shadow: 1px 1px 2px #1C1C1C;
+	box-shadow: 2px 2px 2px #1C1C1C;
+}
+
+.ui-button-text {
+	font-size: 16px;
+	font-style: normal !important;
+}
+
+.button_login {
+	margin-left: 5px;
+	margin-top: 30px;
+	width: 350px;
+	height: 40px;
+	font-family: 'Chau Philomene One', sans-serif;
+}
