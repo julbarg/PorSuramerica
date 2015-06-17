@@ -1,4 +1,4 @@
-package com.claro.jbarragan.jcastro.dto;
+package com.jbarragan.jcastro.dto;
 
 import java.io.Serializable;
 

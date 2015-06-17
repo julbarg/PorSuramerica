@@ -1,4 +1,4 @@
-package com.claro.jbarragan.jcastro.enitity;
+package com.jbarragan.jcastro.enitity;
 
 import java.io.Serializable;
 

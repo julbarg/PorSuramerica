@@ -25,7 +25,7 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="PorSuramericaDS" />
 		<property name="persistenceUnitName" value="PorSuramericaPU" />
-		<property name="packagesToScan" value="com.claro.jbarragan.jcastro.enitity" />
+		<property name="packagesToScan" value="com.jbarragan.jcastro.enitity" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>

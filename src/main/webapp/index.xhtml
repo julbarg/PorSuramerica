@@ -11,6 +11,8 @@
 		rel='stylesheet' type='text/css' />
 	<link href='http://fonts.googleapis.com/css?family=Montserrat'
 		rel='stylesheet' type='text/css' />
+	<script src="http://maps.google.com/maps/api/js?sensor=false"
+		type="text/javascript" />
 </h:head>
 <h:body>
 	<h:form id="form">
@@ -52,8 +54,7 @@
 			</p:panel>
 		</p:panel>
 		<p:panel styleClass="routes">
-			<ui:repeat var="post" value="#{porSuramerica.listPost}"
-				varStatus="status">
+			<ui:repeat var="post" value="#{index.listPost}" varStatus="status">
 				<p:panel styleClass="route" style="#{post.image}">
 					<p:outputPanel styleClass="description_route">
 						<p class="cities">
@@ -66,66 +67,63 @@
 			</ui:repeat>
 		</p:panel>
 
-		<div class="where">
-			<h1>¿DONDE PUTAS ESTAMOS?</h1>
-			<div id="map-canvas"></div>
-		</div>
-		<div class="reflexion">
-			<div class="message">
-				<p>Para la mayoría de las cosas importantes, el momento siempre
-					es pésimo.</p>
-				<p>¿Estás esperando un buen momento para dejar tu trabajo? Las
-					estrellas nunca se alinearán y los semáforos de la vidad nunca se
-					pondrán todos verdes al mismo tiempo. El universo no conspira
-					contra ti, pero tampoco se volverá loco para apartarte obstáculos
-					del camino. Las condiciones nunca serán las ideales. "Algún día" es
-					una enfermedad que hará que te lleves tus sueños a la tumba. Hacer
-					listas de pros y contras tampoco ayuda.</p>
-				<p>Si algo es importante para ti y quieres hacerlo "algún día",
-					hazlo y corrige el rumbo mientras caminas.</p>
-			</div>
-		</div>
+		<p:panel styleClass="where">
+			<p:outputLabel styleClass="h1" value="#{index.tituloWhere}" />
+			<p:gmap styleClass="map-canvas" center="-34.6158238, -58.4333203"
+				zoom="8" type="ROADMAP" />
+		</p:panel>
+		<p:panel styleClass="reflexion">
+			<p:outputPanel styleClass="message">
+				<ui:repeat var="message" value="#{index.listMessage}"
+					varStatus="status">
+					<p>#{message}</p>
+				</ui:repeat>
+			</p:outputPanel>
+		</p:panel>
 
-		<footer>
-			<div class="footer">
-				<h3>CONTACTO</h3>
-				<br />
-				<p>
-					Julián Barragán Verano<br />julbarg@gmail.com
-				</p>
-				<br />
-				<p>
-					Johnatan Felipe Castro Hincapie<br />johntcastro@gmail.com
-				</p>
-				<br />
-				<div class="social_footer">
-					<img alt="facebook" src="img/facebook.png" /> <img alt="twitter"
-						src="img/twitter.png" /> <img alt="imstagram"
-						src="img/imstagram.png" /> <img alt="youtube"
-						src="img/youtube.png" />
-				</div>
-			</div>
-			<div class="footer">
-				<h3>MAPA DE SITIO</h3>
-				<br />
-				<ul class="grupo_mapa_sitio">
-					<li class="link_mapa_sitio">INICIO</li>
-					<li class="link_mapa_sitio">RUTAS</li>
-					<li class="link_mapa_sitio">HISTORIAS</li>
-					<li class="link_mapa_sitio">MENSAJES</li>
-					<li class="link_mapa_sitio">ACERCA DE</li>
-				</ul>
-			</div>
-			<div class="footer">
-				<h3>MENSAJES</h3>
-				<br /> <input class="contacto" type="text" onFocus="cambio(this)"
-					placeholder="Nombre" /> <input class="contacto" type="text"
-					onFocus="cambio(this)" placeholder="E-Mail" />
-				<textarea class="contacto_mensaje" placeholder="Mensaje"></textarea>
-				<br />
-				<button type="button" class="boton_enviar">Enviar</button>
-			</div>
-		</footer>
+		<p:panel styleClass="footer">
+			<h:panelGrid columns="3">
+				<p:panel>
+					<h3>CONTACTO</h3>
+					<ui:repeat var="contact" value="#{index.contacts}"
+						varStatus="status">
+						<p>
+							#{contact.name} <br /> #{contact.email}
+						</p>
+						<br />
+					</ui:repeat>
+					<h:panelGrid columns="4">
+						<p:graphicImage styleClass="social_footer" library="img"
+							name="facebook.png" />
+						<p:graphicImage styleClass="social_footer" library="img"
+							name="twitter.png" />
+						<p:graphicImage styleClass="social_footer" library="img"
+							name="imstagram.png" />
+						<p:graphicImage styleClass="social_footer" library="img"
+							name="youtube.png" />
+					</h:panelGrid>
+
+
+				</p:panel>
+				<p:panel>
+					<h3>MAPA DE SITIO</h3>
+					<h:link styleClass="link_mapa_sitio" value="INICIO" />
+					<h:link styleClass="link_mapa_sitio" value="RUTAS" />
+					<h:link styleClass="link_mapa_sitio" value="HISTORIAS" />
+					<h:link styleClass="link_mapa_sitio" value="MENSAJES" />
+					<h:link styleClass="link_mapa_sitio" value="ACERCA DE" />
+
+				</p:panel>
+				<p:panel>
+					<h3>MENSAJES</h3>
+					<p:inputText id="name" styleClass="contacto" placeholder="Nombre" />
+					<p:inputText id="email" styleClass="contacto" placeholder="E-Mail" />
+					<p:inputTextarea id="message" styleClass="contacto_mensaje"
+						placeholder="Mensaje" />
+					<p:button styleClass="boton_enviar" value="Enviar" />
+				</p:panel>
+			</h:panelGrid>
+		</p:panel>
 	</h:form>
 </h:body>
 </html>

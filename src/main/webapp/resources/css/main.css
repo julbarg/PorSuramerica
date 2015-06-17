@@ -136,7 +136,6 @@ div.resume_header {
 .temperatura_icon {
 	text-align: left;
 	width: 60px;
-	
 }
 
 .temperatura div {
@@ -190,17 +189,15 @@ div.routes {
 	border: 0;
 }
 
-div.routes>.ui-panel-content{
+div.routes>.ui-panel-content {
 	padding: 0 !important;
 	margin: 0 !important;
 }
 
-div.route>.ui-panel-content{
+div.route>.ui-panel-content {
 	padding: 0 !important;
 	margin: 0 !important;
 }
-
-
 
 div.table {
 	margin-top: 40px;
@@ -237,13 +234,13 @@ div.route {
 	float: left;
 	padding: 0;
 	border: 0;
-	margin-bottom: 25px;
+	margin-bottom: 35px;
 	-webkit-border-radius: 0 !important;
 	-moz-border-radius: 0 !important;
 	border-radius: 0 !important;
 }
 
-div.route .ui-panel{
+div.route .ui-panel {
 	padding: 0px !important;
 	margin: 0px !important;
 }
@@ -281,7 +278,7 @@ div.route div.img_route {
 	height: 240px;
 }
 
-div.routes{
+div.routes {
 	font-family: 'Montserrat', sans-serif;
 	margin-top: 20px;
 }
@@ -306,9 +303,11 @@ div.where {
 	-webkit-box-shadow: 0px 0px 45px -4px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 0px 45px -4px rgba(0, 0, 0, 0.75);
 	box-shadow: 0px 0px 45px -4px rgba(0, 0, 0, 0.75);
+	text-align: center;
+	border: 0;
 }
 
-div#map-canvas {
+div.map-canvas {
 	width: 700px;
 	height: 400px;
 	margin-left: auto;
@@ -322,15 +321,18 @@ div#map-canvas {
 	box-shadow: 10px 10px 15px 2px rgba(0, 0, 0, 0.75);
 }
 
-div.where h1 {
+div.where .h1 {
 	text-align: center;
 	font-size: 70px;
 	padding-top: 20px;
 	color: #535353;
+	font-family: 'Chau Philomene One', sans-serif !important;
 }
 
 div.reflexion {
 	height: 530px;
+	background-color: transparent;
+	border: 0;
 }
 
 div.message {
@@ -340,77 +342,101 @@ div.message {
 	margin-right: auto;
 	position: relative;
 	top: 100px;
-	font-size: 28px;
+	font-size: 28px !important;
 	text-align: center;
 	color: black;
 	text-shadow: 1px 2px 2px #FFF;
 	font-family: 'Chau Philomene One', sans-serif;
+	background-color: transparent;
+	border: 0;
 }
 
-footer {
-	width: 1180px;
-	height: 300px;
+.footer {
+	width: 1280px;
+	height: 500px;
 	background-color: #333333;
 	float: left;
-	color: #FFF;
+	color: #FFF !important;
 	padding: 50px;
 	-webkit-box-shadow: 0px 0px 45px -4px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 0px 45px -4px rgba(0, 0, 0, 0.75);
 	box-shadow: 0px 0px 45px -4px rgba(0, 0, 0, 0.75);
+	border: 0;
 }
 
-div.footer {
+div.footer div {
+	color: #FFF !important;
 	float: left;
-	width: 350px;
-	margin: 0 20px;
+	width: 400px;
+	background-color: transparent;
+	border: 0;
+	font-family: 'Chau Philomene One', sans-serif;
+	padding-top: 30px;
 }
 
-div.footer>h3 {
+div.footer div td {
+	vertical-align: top;
+}
+
+div.footer h3 {
 	text-shadow: initial;
 	font-size: 24px;
+	margin-bottom: 36px;
 }
 
-p.descripcion_footer {
-	font-size: 20px;
-}
-
-ul.grupo_mapa_sitio {
+.link_mapa_sitio {
 	position: relative;
-	list-style: none;
 	margin-left: 0px;
-}
-
-li.link_mapa_sitio {
 	margin-bottom: 10px;
+	list-style: none;
 	padding-left: 25px;
 	line-height: 20px;
 	padding-bottom: 10px;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
-	font-size: 14px;
+	font-size: 14px !important;
+	color: white !important;
+	font-family: 'Chau Philomene One', sans-serif;
+	display: block;
+	text-decoration: none;
+	width: 300px;
 }
 
 input.contacto {
-	background-color: #333;
-	color: #F2F2F2;
-	width: 320px;
-	height: 25px;
+	width: 330px;
+	background-color: rgba(28, 28, 28, 0.2) !important;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+	border: 0 !important;
+	color: white !important;
+	height: 40px;
 	margin-bottom: 20px;
 	padding: 5px;
-	border-color: #535353;
-	border-width: 1px;
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	font-size: 16px !important;
+	box-shadow: 0px 0px 0px #1C1C1C !important;
+	font-family: 'Chau Philomene One', sans-serif;
 }
 
 textarea.contacto_mensaje {
-	background-color: #333;
-	color: #F2F2F2;
-	width: 320px;
-	height: 75px;
+	width: 330px;
+	background-color: rgba(28, 28, 28, 0.2) !important;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+	border: 0 !important;
+	color: white !important;
+	height: 100px;
 	margin-bottom: 20px;
-	padding: 5px;
-	vertical-align: text-top;
-	border-color: #535353;
-	border-width: 1px;
+	padding-top: 15px;
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	font-size: 16px !important;
+	box-shadow: 0px 0px 0px #1C1C1C !important;
+	font-family: 'Chau Philomene One', sans-serif;
+	font-weight: lighter;;
 }
 
 button.boton_enviar {
@@ -422,13 +448,12 @@ button.boton_enviar {
 	color: #F2F2F2;
 }
 
-div.social_footer img {
+.social_footer {
 	padding-left: 5px;
 	padding-right: 5px;
 }
 
-@
--webkit-keyframes animatedBackground {
+@-webkit-keyframes animatedBackground {
 	0% {
 		-webkit-transform: scale(1, 1);
 		-moz-transform: scale(1, 1);
@@ -438,11 +463,11 @@ div.social_footer img {
 		
 	}
 	100% {
-		-webkit-transform: scale(1.05, 1.05);
-		-moz-transform: scale(1.05, 1.05);
-		-ms-transform: scale(1.05, 1.05);
-		-o-transform: scale(1.05, 1.05);
-		transform: scale(1.05, 1.05);		
+		-webkit-transform: scale(1.1, 1.1);
+		-moz-transform: scale(1.1, 1.1);
+		-ms-transform: scale(1.1, 1.1);
+		-o-transform: scale(1.1, 1.1);
+		transform: scale(1.1, 1.1);		
 	}
 }
 	
@@ -456,11 +481,11 @@ div.social_footer img {
 		transform: scale(1, 1)
 	}
 	100% {
-		-webkit-transform: scale(1.05, 1.05);
-		-moz-transform: scale(1.05, 1.05);
-		-ms-transform: scale(1.05, 1.05);
-		-o-transform: scale(1.05, 1.05);
-		transform: scale(1.05, 1.05);		
+		-webkit-transform: scale(1.1, 1.1);
+		-moz-transform: scale(1.1, 1.1);
+		-ms-transform: scale(1.1, 1.1);
+		-o-transform: scale(1.1, 1.1);
+		transform: scale(1.1, 1.1);		
 	}
 }
 
@@ -473,10 +498,10 @@ div.social_footer img {
 		transform: scale(1, 1)
 	}
 	100% {
-		-webkit-transform: scale(1.05, 1.05);
-		-moz-transform: scale(1.05, 1.05);
-		-ms-transform: scale(1.05, 1.05);
-		-o-transform: scale(1.05, 1.05);
-		transform: scale(1.05, 1.05);		
+		-webkit-transform: scale(1.1, 1.1);
+		-moz-transform: scale(1.1, 1.1);
+		-ms-transform: scale(1.1, 1.1);
+		-o-transform: scale(1.1, 1.1);
+		transform: scale(1.1, 1.1);		
 	}
 }

@@ -6,7 +6,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import com.claro.jbarragan.jcastro.enitity.PostEntity;
+import com.jbarragan.jcastro.enitity.PostEntity;
 
 
 @Repository

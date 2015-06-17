@@ -2,7 +2,7 @@ package com.jbarragan.jcastro.dao;
 
 import java.util.ArrayList;
 
-import com.claro.jbarragan.jcastro.enitity.PostEntity;
+import com.jbarragan.jcastro.enitity.PostEntity;
 
 
 public interface PostDAO {

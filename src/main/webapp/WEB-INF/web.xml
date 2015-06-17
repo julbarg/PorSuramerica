@@ -26,7 +26,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 	<!-- Welcome page -->
 	<welcome-file-list>
-		<welcome-file>porSuramerica.jsf</welcome-file>
+		<welcome-file>index.jsf</welcome-file>
 	</welcome-file-list>
 
 	<!-- JSF Mapping -->
