@@ -114,7 +114,9 @@ html, body, #map-canvas {
                map : map,
                icon : image,
                title : place.name,
-               position : place.geometry.location
+               position : place.geometry.location,
+               animation: google.maps.Animation.DROP,
+               zoom: 8
             });
 
             document.getElementById("title").value = marker.title;
