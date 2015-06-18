@@ -13,6 +13,17 @@
 		rel='stylesheet' type='text/css' />
 	<script>
       google.maps.event.addDomListener(window, 'load', initialize);
+
+      function changeView(value) {
+         if (value == 'route') {
+            document.getElementById('destination').style.display = '';
+            document.getElementById('ciudad').innerHTML = 'Ciudad Origen';
+         } else if (value == 'story') {
+            document.getElementById('destination').style.display = 'none';
+            document.getElementById('ciudad').innerHTML = 'Ciudad';
+         }
+
+      }
    </script>
 </h:head>
 <h:body>
@@ -45,25 +56,28 @@
 			</h:form>
 
 		</p:panel>
-		<p:panel styleClass="panel_content">
+		<p:panel id="panel_post" styleClass="panel_content">
 			<h:panelGrid cellspacing="15">
 				<h1>Nuevo Post</h1>
 				<p:inputText placeholder="Titulo" styleClass="input_post" />
 				<p:selectOneRadio styleClass="select_post" label="Tipo de Post"
-					value="route">
+					value="route" onchange="changeView(this.value);">
 					<f:selectItem itemLabel="Ruta" itemValue="route" />
 					<f:selectItem itemLabel="Historia" itemValue="story" />
 				</p:selectOneRadio>
-				<p:outputLabel value="Ciudad Origen" styleClass="label_post" />
+				<p:outputLabel id="ciudad" value="Ciudad Origen"
+					styleClass="label_post" />
 				<input id="pac-input-origin" class="controls pac-input" type="text"
-					placeholder="Buscar" />
+					placeholder="Buscar" style="float:left;"/>
 				<div id="map-canvas-origin" class="map-canvas" />
-				<p:outputLabel value="Ciudad Destino" styleClass="label_post" />
-				<input id="pac-input-destination" class="controls pac-input"
-					type="text" placeholder="Buscar" />
-				<div id="map-canvas-destination" class="map-canvas" />
-				<p:inputText placeholder="Kilometros Recorridos"
-					styleClass="input_post" />
+				<h:panelGroup id="destination">
+					<p:outputLabel value="Ciudad Destino" styleClass="label_post" />
+					<input id="pac-input-destination" class="controls pac-input"
+						type="text" placeholder="Buscar" style="float:left;"/>
+					<div id="map-canvas-destination" class="map-canvas" />
+					<p:inputText placeholder="Kilometros Recorridos"
+						styleClass="input_post" />
+				</h:panelGroup>
 				<p:outputLabel value="Foto de Portada: " styleClass="label_post" />
 				<p:fileUpload mode="advanced" skinSimple="true" label="Examinar" />
 				<p:outputLabel value="Fotos de Galleria " styleClass="label_post" />
@@ -72,8 +86,8 @@
 				<p:inputText placeholder="Link Fotos" styleClass="input_post" />
 				<p:outputLabel value="Cuentanos la Historia" styleClass="label_post" />
 				<p:editor />
-				<p:commandButton value="Guardar" styleClass="button_post"/>
-				
+				<p:commandButton value="Guardar" styleClass="button_post" />
+
 			</h:panelGrid>
 		</p:panel>
 	</h:panelGrid>

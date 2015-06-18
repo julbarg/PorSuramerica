@@ -274,7 +274,7 @@ body {
 /* Google Maps Places */
 .map-canvas {
 	height: 300px;
-	width: 600px;
+	width: 800px;
 	padding: 0px;
 	margin-left: 0px;
 }
@@ -298,7 +298,7 @@ body {
 	margin-left: 12px;
 	padding: 0 11px 0 13px;
 	text-overflow: ellipsis;
-	width: 400px;
+	width: 200px;
 }
 
 .pac-input:focus {

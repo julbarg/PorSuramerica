@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Distance Matrix service</title>
+<script
+	src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+<style>
+</style>
+<script>
+   var origin1 = new google.maps.LatLng(55.930385, -3.118425);
+   var origin2 = "Greenwich, England";
+   var destinationA = "Stockholm, Sweden";
+   var destinationB = new google.maps.LatLng(50.087692, 14.421150);
+
+   var service = new google.maps.DistanceMatrixService();
+   service.getDistanceMatrix({
+      origins : [ origin1, origin2 ],
+      destinations : [ destinationA, destinationB ],
+      travelMode : google.maps.TravelMode.DRIVING,
+      unitSystem : google.maps.UnitSystem.METRIC,
+      avoidHighways : false,
+      avoidTolls : false
+   }, callback);
+
+   function callback(response, status) {
+      var origins = response.originAddresses;
+      var destinations = response.destinationAddresses;
+      var outputDiv = document.getElementById("response");
+      for (var i = 0; i < 1; i++) {
+         var results = response.rows[i].elements;
+         for (var j = 0; j < results.length; j++) {
+            var data = '<p>' + origins[i] + '</p><p>' + destinations[j] + '</p>' + '<p>Distance: </p>'
+                  + results[j].distance.text + '<p>Duration: </p>' + results[j].duration.text
+                  + '<br><br><br>';
+            outputDiv.innerHTML += data;
+         }
+      }
+      call(response, status);
+   }
+
+   function call(response, status) {
+      var distance = response.rows[0].elements[0].distance.text;
+      var distanceText = response.rows[0].elements[0].distance.value;
+      alert(distance+' '+distanceText);
+   }
+</script>
+<style type="text/css">
+p {
+	margin: 0;
+}
+</style>
+</head>
+<body>
+	<div id="response"></div>
+</body>
+</html>
