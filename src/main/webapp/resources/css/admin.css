@@ -26,6 +26,7 @@ body {
 	-moz-border-radius: 0px !important;
 	border-radius: 0px !important;
 	padding: 0 !important;
+	z-index: 1;
 }
 
 .panel_header .ui-panel-content {
@@ -66,9 +67,11 @@ body {
 
 .panel_content {
 	margin-top: 80px;
-	margin-left: 200px;
+	margin-left: 220px;
+	margin-right: 20px;
 	border: 0;
-	background-color: transparent;
+	background-color: rgba(255, 255, 255, 0.7);
+	display: inline-block;
 }
 
 .panel_menu {
@@ -178,3 +181,143 @@ body {
 	padding-right: 5px !important;
 	background-color: #007AA3 !important;
 }
+
+.input_post {
+	width: 800px;
+	background-color: transparent !important;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+	border: 0 !important;
+	color: #4F4F4F !important;
+	height: 40px;
+	margin-bottom: 20px;
+	padding: 5px;
+	font-size: 24px !important;
+	box-shadow: 0px 0px 0px #1C1C1C !important;
+	font-family: 'Chau Philomene One', sans-serif;
+	border-bottom-width: 1px !important;
+	border-bottom-style: solid !important;
+	border-color: #4F4F4F !important;
+}
+
+.label_post {
+	width: 800px;
+	border: 0 !important;
+	color: #4F4F4F !important;
+	height: 40px;
+	padding: 5px;
+	font-size: 24px !important;
+	font-family: 'Chau Philomene One', sans-serif;
+}
+
+.button_post {
+	width: 800px;
+}
+
+.select_post {
+	font-size: 24px !important;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.select_post td {
+	padding-right: 5px;
+}
+
+::-webkit-input-placeholder {
+	color: #4F4F4F !important;
+}
+
+:-moz-placeholder {
+	color: #4F4F4F !important;
+}
+
+::-moz-placeholder {
+	color: #4F4F4F !important;
+}
+
+:-ms-input-placeholder {
+	color: #4F4F4F !important;
+}
+
+.ui-button {
+	font-weight: 100 !important;
+	background: rgb(0, 122, 163) !important;
+	color: white !important;
+	border: 0 !important;
+	text-shadow: none !important;
+	-moz-box-shadow: 1px 1px 2px #1C1C1C;
+	-webkit-box-shadow: 1px 1px 2px #1C1C1C;
+	box-shadow: 1px 1px 2px #1C1C1C;
+}
+
+.ui-button:HOVER {
+	text-shadow: none !important;
+	-moz-box-shadow: 1px 1px 2px #1C1C1C;
+	-webkit-box-shadow: 1px 1px 2px #1C1C1C;
+	box-shadow: 2px 2px 2px #1C1C1C;
+}
+
+.ui-button:ACTIVE {
+	text-shadow: none !important;
+	-moz-box-shadow: 1px 1px 2px #1C1C1C;
+	-webkit-box-shadow: 1px 1px 2px #1C1C1C;
+	box-shadow: 2px 2px 2px #1C1C1C;
+}
+
+.ui-button-text {
+	font-size: 16px;
+	font-style: normal !important;
+}
+
+/* Google Maps Places */
+.map-canvas {
+	height: 300px;
+	width: 600px;
+	padding: 0px;
+	margin-left: 0px;
+}
+
+.controls {
+	margin-top: 16px;
+	border: 1px solid transparent;
+	border-radius: 2px 0 0 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 32px;
+	outline: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.pac-input {
+	background-color: #fff;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 400px;
+}
+
+.pac-input:focus {
+	border-color: #4d90fe;
+}
+
+.pac-container {
+	font-family: Roboto;
+}
+
+#type-selector {
+	color: #fff;
+	background-color: #4d90fe;
+	padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+	font-family: Roboto;
+	font-size: 13px;
+	font-weight: 300;
+}
+/*End Google Maps Places */
