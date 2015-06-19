@@ -12,19 +12,17 @@
 	<link href='http://fonts.googleapis.com/css?family=Oswald:300'
 		rel='stylesheet' type='text/css' />
 	<script>
-      google.maps.event.addDomListener(window, 'load', initialize);
+		google.maps.event.addDomListener(window, 'load', initialize);
 
-      function changeView(value) {
-         if (value == 'route') {
-            document.getElementById('destination').style.display = '';
-            document.getElementById('ciudad').innerHTML = 'Ciudad Origen';
-         } else if (value == 'story') {
-            document.getElementById('destination').style.display = 'none';
-            document.getElementById('ciudad').innerHTML = 'Ciudad';
-         }
+		function changeView(value) {
+			if (value == 'route') {
+				document.getElementById('ciudad').innerHTML = 'Ruta';
+			} else if (value == 'story') {
+				document.getElementById('ciudad').innerHTML = 'Ciudad';
+			}
 
-      }
-   </script>
+		}
+	</script>
 </h:head>
 <h:body>
 	<p:panel styleClass="panel_header">
@@ -58,6 +56,7 @@
 		</p:panel>
 		<p:panel id="panel_post" styleClass="panel_content">
 			<h:panelGrid cellspacing="15">
+				<span id="total"></span>
 				<h1>Nuevo Post</h1>
 				<p:inputText placeholder="Titulo" styleClass="input_post" />
 				<p:selectOneRadio styleClass="select_post" label="Tipo de Post"
@@ -68,16 +67,12 @@
 				<p:outputLabel id="ciudad" value="Ciudad Origen"
 					styleClass="label_post" />
 				<input id="pac-input-origin" class="controls pac-input" type="text"
-					placeholder="Buscar" style="float:left;"/>
+					placeholder="Buscar" style="float: left;" />
+				<input id="pac-input-destination" class="controls pac-input"
+					type="text" placeholder="Buscar" style="float: left;" />
 				<div id="map-canvas-origin" class="map-canvas" />
-				<h:panelGroup id="destination">
-					<p:outputLabel value="Ciudad Destino" styleClass="label_post" />
-					<input id="pac-input-destination" class="controls pac-input"
-						type="text" placeholder="Buscar" style="float:left;"/>
-					<div id="map-canvas-destination" class="map-canvas" />
-					<p:inputText placeholder="Kilometros Recorridos"
-						styleClass="input_post" />
-				</h:panelGroup>
+				<p:inputText id="km" placeholder="Kilometros Recorridos"
+					styleClass="input_post" />
 				<p:outputLabel value="Foto de Portada: " styleClass="label_post" />
 				<p:fileUpload mode="advanced" skinSimple="true" label="Examinar" />
 				<p:outputLabel value="Fotos de Galleria " styleClass="label_post" />
