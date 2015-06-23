@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>P</title>
 	<h:outputStylesheet library="css" name="main.css" />
-	<link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One'
-		rel='stylesheet' type='text/css' />
-	<link href='http://fonts.googleapis.com/css?family=Montserrat'
-		rel='stylesheet' type='text/css' />
-	<script src="http://maps.google.com/maps/api/js?sensor=false"
-		type="text/javascript" />
+	<h:outputStylesheet library="css" name="post.css" />
+	<link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' />
+	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript" />
 </h:head>
 <h:body>
+	<ui:include src="pages/dialog/post.xhtml" />
 	<h:form id="form">
 		<p:panel styleClass="header">
 			<p:menubar styleClass="nav">
@@ -55,27 +52,28 @@
 		</p:panel>
 		<p:panel styleClass="routes">
 			<ui:repeat var="post" value="#{index.listPost}" varStatus="status">
-				<p:panel styleClass="route" style="#{post.image}">
-					<p:outputPanel styleClass="description_route">
-						<p class="cities">
-							#{post.title}<br /> #{post.cityFrom} - #{post.cityTo}
-						</p>
-						<p class="intro">#{post.description}</p>
-						<p class="date_route">#{post.date}</p>
-					</p:outputPanel>
-				</p:panel>
+				<p:commandLink oncomplete="PF('post').show();">
+					<p:panel styleClass="route" style="#{post.image}">
+						<p:outputPanel styleClass="description_route">
+							<p class="cities">
+								#{post.title}<br /> #{post.cityFrom} - #{post.cityTo}
+							</p>
+							<p class="intro">#{post.description}</p>
+							<p class="date_route">#{post.date}</p>
+
+						</p:outputPanel>
+					</p:panel>
+				</p:commandLink>
 			</ui:repeat>
 		</p:panel>
 
 		<p:panel styleClass="where">
 			<p:outputLabel styleClass="h1" value="#{index.tituloWhere}" />
-			<p:gmap styleClass="map-canvas" center="-34.6158238, -58.4333203"
-				zoom="8" type="ROADMAP" />
+			<p:gmap styleClass="map-canvas" center="-34.6158238, -58.4333203" zoom="8" type="ROADMAP" />
 		</p:panel>
 		<p:panel styleClass="reflexion">
 			<p:outputPanel styleClass="message">
-				<ui:repeat var="message" value="#{index.listMessage}"
-					varStatus="status">
+				<ui:repeat var="message" value="#{index.listMessage}" varStatus="status">
 					<p>#{message}</p>
 				</ui:repeat>
 			</p:outputPanel>
@@ -85,22 +83,17 @@
 			<h:panelGrid columns="3">
 				<p:panel>
 					<h3>CONTACTO</h3>
-					<ui:repeat var="contact" value="#{index.contacts}"
-						varStatus="status">
+					<ui:repeat var="contact" value="#{index.contacts}" varStatus="status">
 						<p>
 							#{contact.name} <br /> #{contact.email}
 						</p>
 						<br />
 					</ui:repeat>
 					<h:panelGrid columns="4">
-						<p:graphicImage styleClass="social_footer" library="img"
-							name="facebook.png" />
-						<p:graphicImage styleClass="social_footer" library="img"
-							name="twitter.png" />
-						<p:graphicImage styleClass="social_footer" library="img"
-							name="imstagram.png" />
-						<p:graphicImage styleClass="social_footer" library="img"
-							name="youtube.png" />
+						<p:graphicImage styleClass="social_footer" library="img" name="facebook.png" />
+						<p:graphicImage styleClass="social_footer" library="img" name="twitter.png" />
+						<p:graphicImage styleClass="social_footer" library="img" name="imstagram.png" />
+						<p:graphicImage styleClass="social_footer" library="img" name="youtube.png" />
 					</h:panelGrid>
 
 
@@ -118,8 +111,7 @@
 					<h3>MENSAJES</h3>
 					<p:inputText id="name" styleClass="contacto" placeholder="Nombre" />
 					<p:inputText id="email" styleClass="contacto" placeholder="E-Mail" />
-					<p:inputTextarea id="message" styleClass="contacto_mensaje"
-						placeholder="Mensaje" />
+					<p:inputTextarea id="message" styleClass="contacto_mensaje" placeholder="Mensaje" />
 					<p:button styleClass="boton_enviar" value="Enviar" />
 				</p:panel>
 			</h:panelGrid>

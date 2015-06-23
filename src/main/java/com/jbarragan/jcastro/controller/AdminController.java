@@ -1,10 +1,17 @@
 package com.jbarragan.jcastro.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.context.annotation.Scope;
@@ -32,8 +39,6 @@ public class AdminController implements Serializable {
 
    private CityDTO city;
 
-   private UploadedFile imageFront;
-
    @PostConstruct
    public void initialize() {
       typePost = PostEnum.ROUTE.getValue();
@@ -43,14 +48,26 @@ public class AdminController implements Serializable {
       route = new RouteDTO();
       city = new CityDTO();
    }
-   
+
    public void loadImageFront(FileUploadEvent event) {
       try {
-         imageFront = event.getFile();
-         String fileName = imageFront.getFileName();
-         System.out.println(fileName);
+         UploadedFile fileUpload = event.getFile();
+         saveImage(fileUpload);
       } catch (Exception e) {
          e.printStackTrace();
+      }
+   }
+
+   private void saveImage(UploadedFile fileUpload) throws IOException {
+      String filename = FilenameUtils.getName(fileUpload.getFileName());
+      InputStream input = fileUpload.getInputstream();
+      OutputStream output = new FileOutputStream(new File("C:/Users/jbarragan/Julian/PorSuramericaImg",
+         filename));
+      try {
+         IOUtils.copy(input, output);
+      } finally {
+         IOUtils.closeQuietly(input);
+         IOUtils.closeQuietly(output);
       }
    }
 
@@ -84,14 +101,6 @@ public class AdminController implements Serializable {
 
    public void setCity(CityDTO city) {
       this.city = city;
-   }
-
-   public UploadedFile getImageFront() {
-      return imageFront;
-   }
-
-   public void setImageFront(UploadedFile imageFront) {
-      this.imageFront = imageFront;
    }
 
 }

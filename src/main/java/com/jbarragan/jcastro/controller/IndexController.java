@@ -25,31 +25,47 @@ public class IndexController implements Serializable {
 
    @Autowired
    private PostDAO postDAO;
-   
+
    private ArrayList<PostDTO> listPost;
 
-   
+   private PostDTO selectPost;
 
    private String textEdit;
 
    private String tituloWhere;
 
    private ArrayList<String> listMessage;
-   
+
    private ArrayList<ContactDTO> contacts;
 
    @PostConstruct
    private void initialize() {
       this.textEdit = "";
-      this.tituloWhere ="¿DONDE PUTAS ESTAMOS?";
+      this.tituloWhere = "¿DONDE PUTAS ESTAMOS?";
       this.listMessage = new ArrayList<String>();
       this.listMessage.add("Para la mayoría de las cosas importantes, el momento siempre es pésimo.");
-      this.listMessage.add("¿Estás esperando un buen momento para dejar tu trabajo? Las estrellas nunca se alinearán y los semáforos de la vidad nunca se pondrán todos verdes al mismo tiempo. El universo no conspira contra ti, pero tampoco se volverá loco para apartarte obstáculos del camino. Las condiciones nunca serán las ideales. <<Algún día>> es  listas de pros y contras tampoco ayuda.");
-      this.listMessage.add("Si algo es importante para ti y quieres hacerlo <<algún día>>, hazlo y corrige el rumbo mientras caminas.");
+      this.listMessage
+         .add("¿Estás esperando un buen momento para dejar tu trabajo? Las estrellas nunca se alinearán y los semáforos de la vidad nunca se pondrán todos verdes al mismo tiempo. El universo no conspira contra ti, pero tampoco se volverá loco para apartarte obstáculos del camino. Las condiciones nunca serán las ideales. <<Algún día>> es  listas de pros y contras tampoco ayuda.");
+      this.listMessage
+         .add("Si algo es importante para ti y quieres hacerlo <<algún día>>, hazlo y corrige el rumbo mientras caminas.");
       this.contacts = new ArrayList<ContactDTO>();
       this.contacts.add(new ContactDTO("Julián Barragán Verano", "julbarg@gmail.com"));
       this.contacts.add(new ContactDTO("Johnatan Felipe Castro", "johntcastro@gmail.com"));
       loadPost();
+      loadSelect();
+
+   }
+
+   private void loadSelect() {
+      selectPost = new PostDTO();
+      selectPost.setTitle("01. EXAMPLE TITLE");
+      selectPost.setCityFrom("Cali, Colombia");
+      selectPost.setCityTo("Popayan, Colombia");
+      selectPost.setDescription("Lorem Ipsum is simply dummy text "
+         + "of the printing and typesetting industry. Lorem Ipsum has been "
+         + "the industry's standard dummy text ever since the 1500s.");
+      selectPost.setDate("10 de enero de 2015");
+      selectPost.setImage("background-image:url('resources/img/trujillo.jpg'); background-size: cover;");
 
    }
 
@@ -114,6 +130,14 @@ public class IndexController implements Serializable {
 
    public void setContacts(ArrayList<ContactDTO> contacts) {
       this.contacts = contacts;
+   }
+
+   public PostDTO getSelectPost() {
+      return selectPost;
+   }
+
+   public void setSelectPost(PostDTO selectPost) {
+      this.selectPost = selectPost;
    }
 
 }

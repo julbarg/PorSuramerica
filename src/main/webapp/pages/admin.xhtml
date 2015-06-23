@@ -106,13 +106,13 @@
 
 
 					<p:outputLabel value="Fotos de Galleria " styleClass="label_post" />
-					<p:fileUpload mode="advanced" skinSimple="true" label="Examinar" multiple="true" />
+					<p:fileUpload fileUploadListener="#{admin.loadImageFront}" mode="advanced" skinSimple="true"
+						label="Examinar" multiple="true" />
 
 					<p:inputText placeholder="Link Fotos" styleClass="input_post" />
 					<p:outputLabel value="Cuentanos la Historia" styleClass="label_post" />
 					<p:editor />
 					<p:commandButton value="Guardar" styleClass="button_post" />
-
 				</h:panelGrid>
 			</p:panel>
 		</h:panelGrid>
