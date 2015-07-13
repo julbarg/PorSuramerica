@@ -199,6 +199,18 @@ div.route>.ui-panel-content {
 	margin: 0 !important;
 }
 
+.image {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+	padding-bottom: 50px;
+	background-color: transparent;
+	border: 0;
+}
+
 div.table {
 	margin-top: 40px;
 	display: table;

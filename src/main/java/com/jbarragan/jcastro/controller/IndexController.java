@@ -1,9 +1,11 @@
 package com.jbarragan.jcastro.controller;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -39,7 +41,7 @@ public class IndexController implements Serializable {
    private ArrayList<ContactDTO> contacts;
 
    @PostConstruct
-   private void initialize() {
+   private void initialize() throws IOException {
       this.textEdit = "";
       this.tituloWhere = "¿DONDE PUTAS ESTAMOS?";
       this.listMessage = new ArrayList<String>();
@@ -53,20 +55,14 @@ public class IndexController implements Serializable {
       this.contacts.add(new ContactDTO("Johnatan Felipe Castro", "johntcastro@gmail.com"));
       loadPost();
       loadSelect();
+      
+      FacesContext.getCurrentInstance()
+      .getExternalContext().redirect("pages/index.jsf");
 
    }
 
    private void loadSelect() {
       selectPost = new PostDTO();
-      selectPost.setTitle("01. EXAMPLE TITLE");
-      selectPost.setCityFrom("Cali, Colombia");
-      selectPost.setCityTo("Popayan, Colombia");
-      selectPost.setDescription("Lorem Ipsum is simply dummy text "
-         + "of the printing and typesetting industry. Lorem Ipsum has been "
-         + "the industry's standard dummy text ever since the 1500s.");
-      selectPost.setDate("10 de enero de 2015");
-      selectPost.setImage("background-image:url('resources/img/trujillo.jpg'); background-size: cover;");
-
    }
 
    private void loadPost() {
@@ -75,14 +71,14 @@ public class IndexController implements Serializable {
          listPost = new ArrayList<PostDTO>();
          for (int i = 0; i < 8; i++) {
             post = new PostDTO();
-            post.setTitle("01. CALI ES CALI LO DEMAS ES LOMA");
+            post.setTitle(i+". CALI ES CALI LO DEMAS ES LOMA");
             post.setCityFrom("Cali, Colombia");
             post.setCityTo("Popayan, Colombia");
             post.setDescription("Lorem Ipsum is simply dummy text "
                + "of the printing and typesetting industry. Lorem Ipsum has been "
                + "the industry's standard dummy text ever since the 1500s.");
             post.setDate("10 de enero de 2015");
-            post.setImage("background-image:url('resources/img/trujillo.jpg');");
+            post.setImage("background-image:url('../resources/img/trujillo.jpg');");
             listPost.add(post);
          }
 
@@ -90,6 +86,10 @@ public class IndexController implements Serializable {
          e.printStackTrace();
       }
 
+   }
+   
+   public String goPost(){
+	   return "post.xhtml";
    }
 
    public String getTextEdit() {

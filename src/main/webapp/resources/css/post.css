@@ -31,6 +31,42 @@ div.dialogPost {
 	border: 0 !important;
 }
 
-.panelGridPost table {
+.panelGridPost {
+	font-family: 'Chau Philomene One', sans-serif !important;
 	width: 100%;
+}
+
+#dialog_post .ui-dialog-content {
+	padding: 0 !important;
+	height: 50% !important;
+}
+
+.title {
+	font-family: 'Chau Philomene One', sans-serif !important;
+	padding: 20px;
+	font-size: 20px !important;
+	display: block;
+	padding-left: 20px;
+}
+
+.story {
+	width: 70%;
+	text-align: left;
+	padding: 10px;
+	vertical-align: top;
+	padding-left: 20px;
+	text-align: justify;
+}
+
+.map {
+	width: 30%;
+	text-align: right;
+	padding: 10px;
+	border: 0;
+	vertical-align: top;
+}
+
+label {
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: 20px;
 }
