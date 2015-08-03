@@ -39,6 +39,8 @@ public class AdminController implements Serializable {
 
    private CityDTO city;
 
+   private String editor;
+
    @PostConstruct
    public void initialize() {
       typePost = PostEnum.ROUTE.getValue();
@@ -46,6 +48,8 @@ public class AdminController implements Serializable {
       listTypePost.add(PostEnum.ROUTE.getValue());
       listTypePost.add(PostEnum.STORY.getValue());
       route = new RouteDTO();
+      route.setCityOrigin(new CityDTO());
+      route.setCityDestination(new CityDTO());
       city = new CityDTO();
    }
 
@@ -69,6 +73,11 @@ public class AdminController implements Serializable {
          IOUtils.closeQuietly(input);
          IOUtils.closeQuietly(output);
       }
+   }
+
+   public void save() {
+      System.out.println("ssadsad");
+      System.out.println(editor);
    }
 
    public String getTypePost() {
@@ -101,6 +110,14 @@ public class AdminController implements Serializable {
 
    public void setCity(CityDTO city) {
       this.city = city;
+   }
+
+   public String getEditor() {
+      return editor;
+   }
+
+   public void setEditor(String editor) {
+      this.editor = editor;
    }
 
 }

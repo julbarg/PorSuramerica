@@ -59,6 +59,7 @@
 					<span id="total"></span>
 					<h1>Nuevo Post</h1>
 					<p:inputText placeholder="Titulo" styleClass="input_post" />
+					<p:inputText placeholder="Subtitulo" styleClass="input_post" />
 					<p:selectOneRadio styleClass="select_post" label="Tipo de Post" value="route"
 						onchange="changeView(this.value);">
 						<f:selectItem itemLabel="Ruta" itemValue="route" />
@@ -111,12 +112,14 @@
 
 					<p:inputText placeholder="Link Fotos" styleClass="input_post" />
 					<p:outputLabel value="Cuentanos la Historia" styleClass="label_post" />
-					<p:editor />
-					<p:commandButton value="Guardar" styleClass="button_post" />
+					<p:editor value="#{admin.editor}" />
+					<p:commandButton value="Guardar" styleClass="button_post" action="#{admin.save}" />
 				</h:panelGrid>
 			</p:panel>
 		</h:panelGrid>
 	</h:form>
+
+	
 
 </h:body>
 </html>

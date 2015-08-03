@@ -40,6 +40,8 @@ public class IndexController implements Serializable {
 
    private ArrayList<ContactDTO> contacts;
 
+   private String editor;
+
    @PostConstruct
    private void initialize() throws IOException {
       this.textEdit = "";
@@ -55,9 +57,9 @@ public class IndexController implements Serializable {
       this.contacts.add(new ContactDTO("Johnatan Felipe Castro", "johntcastro@gmail.com"));
       loadPost();
       loadSelect();
-      
-      FacesContext.getCurrentInstance()
-      .getExternalContext().redirect("pages/index.jsf");
+      editor = "dfskdfj jakslfjslkfj lkfsjlksjfdlkj kljlkfjlaskjf lkjflkjsalkfj alksjfkljsaflkj kajsflñkjsafñlkñj lkajflkasjfklsja klasjflkjaslkfj kslfjsklajflksj lkasjflkasjflkjsa aksljlkfjsalkjflkjsfñlkñj klsjflñkasjlfkjsa lkfjlaskjflñkjasl klfsjlkñjfkljsalñkfj klfjsalñkjfl{ksajlkfjas lkjsfakljslkfjlksaj kljfslkjsalkjfl kjlñkfjlkjsalk jflkñsajlk jflkñsaj lkfjlksajf kaljf klj lkñj lk jlkfjlksajflkjs alkjflkjsflkj salkjf añklfj lkjsflkjs alkjflkjsaklfjsa kljfklsajflkjsalkjf sklfjlksajklfjlaskjfs jlksfjkljafñlkjasklfja lksajflkjsalfkjsalkjf lksajfñlk jsalkfjlks lkfjlñkasjflkjsalkj lkfjsalkfjlkñasjfkljsa klfjaskljfñlksjafñlkj lksafjlksjafñlkjaslk flskjalkfjlkasjflñk lñsfkjñlkjasfñlkj lñsakjasñlkfjñklsajf ñlkajsflkjaslkfja lkafsjlkasjflkjas lkajflksajlkfjlks lkfjlaksjflkjslk lkjflksajflkjs lkjsflkasjlkj lkjflkjsalfkjasklj kljfslkjflkjsalkf lksfjl kjfl kjsaflkj flkj kljsflk jlsakfj lkjlkjf flkasj flkjfslkjlkj ñlkj fkljslkfj lkf sjlkasj lkfjsklajfl kjsl kjkl jñlkjf lkajsf&nbsp;<img src='http://www.dgadmin.com.ar/images/Claro-2.gif' style='float:left;'>fasflaslfñkj kasfjlkasjflñkjsalkfj lkjals kjflñksajlñkj ljflskjalñkf jslkj lkjf lñkj lñkjfñlkjf alkj aflkjalk fjalkf jlkjs flaksj lk jslkaj SLKJslkjSOIETIOWEUT OIGDKSJGLKSJkjgsñlkdjglñkj kljg lkdjglñk jglkj lñkgdjñk ljgflkj lkfgjlkfglkjfd lkjlfgkjkgljlkfgjñlkgd kljgkñl jsdñglkjsg ñlkjdf lkj lkfj glñkjg lkjf kljdglk jdglk jfglkjsd lkdsjg ñklsj dlkgjñlkjdñlkjkl kljglkj kljgl kfgklgjl kgjñdlgk jlkj gñkl klgk gf ñkñgkgñk lkjglkjdfñkgljdgkjdgñdklñ jglñkjgñlk jgñlkjgñlkjg lkjgñlkjdñglk jñjlkg";
+
+      FacesContext.getCurrentInstance().getExternalContext().redirect("pages/index.jsf");
 
    }
 
@@ -71,7 +73,8 @@ public class IndexController implements Serializable {
          listPost = new ArrayList<PostDTO>();
          for (int i = 0; i < 8; i++) {
             post = new PostDTO();
-            post.setTitle(i+". CALI ES CALI LO DEMAS ES LOMA");
+            post.setTitle(i + ". TITLE ARTICLE");
+            post.setSubtitle("Subtitle of Aticle... Details or Resume about Story, no more than 30 words");
             post.setCityFrom("Cali, Colombia");
             post.setCityTo("Popayan, Colombia");
             post.setDescription("Lorem Ipsum is simply dummy text "
@@ -87,9 +90,9 @@ public class IndexController implements Serializable {
       }
 
    }
-   
-   public String goPost(){
-	   return "post.xhtml";
+
+   public String goPost() {
+      return "post.xhtml?faces-redirect=true";
    }
 
    public String getTextEdit() {
@@ -138,6 +141,14 @@ public class IndexController implements Serializable {
 
    public void setSelectPost(PostDTO selectPost) {
       this.selectPost = selectPost;
+   }
+
+   public String getEditor() {
+      return editor;
+   }
+
+   public void setEditor(String editor) {
+      this.editor = editor;
    }
 
 }

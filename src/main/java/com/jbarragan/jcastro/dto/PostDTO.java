@@ -9,8 +9,10 @@ public class PostDTO implements Serializable {
     * 
     */
    private static final long serialVersionUID = 1L;
-   
+
    private String title;
+
+   private String subtitle;
 
    private String cityFrom;
 
@@ -19,7 +21,7 @@ public class PostDTO implements Serializable {
    private String description;
 
    private String date;
-   
+
    private String image;
 
    public String getTitle() {
@@ -68,6 +70,14 @@ public class PostDTO implements Serializable {
 
    public void setImage(String image) {
       this.image = image;
+   }
+
+   public String getSubtitle() {
+      return subtitle;
+   }
+
+   public void setSubtitle(String subtitle) {
+      this.subtitle = subtitle;
    }
 
 }
