@@ -1,0 +1,17 @@
+.menu_bar_route {
+	border: 0;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	padding: 0 !important;
+	margin: 0 !important;
+	height: 64px;
+	background-color: #007AA3 !important;
+	background: -webkit-linear-gradient(#007AA3, #007AA3) !important;
+	background: -o-linear-gradient(#007AA3, #007AA3) !important;
+	background: -moz-linear-gradient(#007AA3, #007AA3) !important;
+	background: linear-gradient(#007AA3, #007AA3) !important;
+	position: fixed !important;
+	width: 1280px !important;
+	z-index: 200;
+}

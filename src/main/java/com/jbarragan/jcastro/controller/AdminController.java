@@ -21,103 +21,102 @@ import com.jbarragan.jcastro.dto.CityDTO;
 import com.jbarragan.jcastro.dto.RouteDTO;
 import com.jbarragan.jcastro.enums.PostEnum;
 
-
 @Controller("admin")
 @Scope("request")
 public class AdminController implements Serializable {
 
-   /**
+	/**
     * 
     */
-   private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-   private String typePost;
+	private String typePost;
 
-   private ArrayList<String> listTypePost;
+	private ArrayList<String> listTypePost;
 
-   private RouteDTO route;
+	private RouteDTO route;
 
-   private CityDTO city;
+	private CityDTO city;
 
-   private String editor;
+	private String editor;
 
-   @PostConstruct
-   public void initialize() {
-      typePost = PostEnum.ROUTE.getValue();
-      listTypePost = new ArrayList<String>();
-      listTypePost.add(PostEnum.ROUTE.getValue());
-      listTypePost.add(PostEnum.STORY.getValue());
-      route = new RouteDTO();
-      route.setCityOrigin(new CityDTO());
-      route.setCityDestination(new CityDTO());
-      city = new CityDTO();
-   }
+	@PostConstruct
+	public void initialize() {
+		typePost = PostEnum.ROUTE.getValue();
+		listTypePost = new ArrayList<String>();
+		listTypePost.add(PostEnum.ROUTE.getValue());
+		listTypePost.add(PostEnum.STORY.getValue());
+		route = new RouteDTO();
+		route.setCityOrigin(new CityDTO());
+		route.setCityDestination(new CityDTO());
+		city = new CityDTO();
+	}
 
-   public void loadImageFront(FileUploadEvent event) {
-      try {
-         UploadedFile fileUpload = event.getFile();
-         saveImage(fileUpload);
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-   }
+	public void loadImageFront(FileUploadEvent event) {
+		try {
+			UploadedFile fileUpload = event.getFile();
+			saveImage(fileUpload);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-   private void saveImage(UploadedFile fileUpload) throws IOException {
-      String filename = FilenameUtils.getName(fileUpload.getFileName());
-      InputStream input = fileUpload.getInputstream();
-      OutputStream output = new FileOutputStream(new File("C:/Users/jbarragan/Julian/PorSuramericaImg",
-         filename));
-      try {
-         IOUtils.copy(input, output);
-      } finally {
-         IOUtils.closeQuietly(input);
-         IOUtils.closeQuietly(output);
-      }
-   }
+	private void saveImage(UploadedFile fileUpload) throws IOException {
+		String filename = FilenameUtils.getName(fileUpload.getFileName());
+		InputStream input = fileUpload.getInputstream();
+		OutputStream output = new FileOutputStream(new File(
+				"C:/Users/jbarragan/Julian/PorSuramericaImg", filename));
+		try {
+			IOUtils.copy(input, output);
+		} finally {
+			IOUtils.closeQuietly(input);
+			IOUtils.closeQuietly(output);
+		}
+	}
 
-   public void save() {
-      System.out.println("ssadsad");
-      System.out.println(editor);
-   }
+	public void save() {
+		System.out.println("ssadsad");
+		System.out.println(editor);
+	}
 
-   public String getTypePost() {
-      return typePost;
-   }
+	public String getTypePost() {
+		return typePost;
+	}
 
-   public void setTypePost(String typePost) {
-      this.typePost = typePost;
-   }
+	public void setTypePost(String typePost) {
+		this.typePost = typePost;
+	}
 
-   public ArrayList<String> getListTypePost() {
-      return listTypePost;
-   }
+	public ArrayList<String> getListTypePost() {
+		return listTypePost;
+	}
 
-   public void setListTypePost(ArrayList<String> listTypePost) {
-      this.listTypePost = listTypePost;
-   }
+	public void setListTypePost(ArrayList<String> listTypePost) {
+		this.listTypePost = listTypePost;
+	}
 
-   public RouteDTO getRoute() {
-      return route;
-   }
+	public RouteDTO getRoute() {
+		return route;
+	}
 
-   public void setRoute(RouteDTO route) {
-      this.route = route;
-   }
+	public void setRoute(RouteDTO route) {
+		this.route = route;
+	}
 
-   public CityDTO getCity() {
-      return city;
-   }
+	public CityDTO getCity() {
+		return city;
+	}
 
-   public void setCity(CityDTO city) {
-      this.city = city;
-   }
+	public void setCity(CityDTO city) {
+		this.city = city;
+	}
 
-   public String getEditor() {
-      return editor;
-   }
+	public String getEditor() {
+		return editor;
+	}
 
-   public void setEditor(String editor) {
-      this.editor = editor;
-   }
+	public void setEditor(String editor) {
+		this.editor = editor;
+	}
 
 }
